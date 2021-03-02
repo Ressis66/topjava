@@ -26,7 +26,9 @@ public class JpaMealRepository implements MealRepository {
 
     @Override
     public Meal save(Meal meal, int userId) {
-       em.persist(meal);
+        em.setProperty("user_id", userId);
+        em.persist(meal);
+
        return meal;
     }
 
@@ -50,6 +52,7 @@ public class JpaMealRepository implements MealRepository {
 
     @Override
     public List<Meal> getBetweenHalfOpen(LocalDateTime startDateTime, LocalDateTime endDateTime, int userId) {
-        return null;
+        return em.createQuery("SELECT u FROM Meal u WHERE u.dateTime >= ?1 AND u.dateTime < ?2").
+setParameter(1, startDateTime).setParameter(2,endDateTime).getResultList();
     }
 }
