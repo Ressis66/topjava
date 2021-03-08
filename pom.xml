@@ -174,6 +174,10 @@
             <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -187,7 +191,36 @@
                 </dependency>
             </dependencies>
         </profile>
-
+        <profile>
+            <id>jdbc</id>
+            <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>5.3.4</version>
+            </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>jpa</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.data</groupId>
+                    <artifactId>spring-data-jpa</artifactId>
+                    <version>2.4.5</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>datajpa</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.data</groupId>
+                    <artifactId>spring-data-jpa</artifactId>
+                    <version>2.4.5</version>
+                </dependency>
+            </dependencies>
+        </profile>
         <profile>
             <id>postgres</id>
             <dependencies>

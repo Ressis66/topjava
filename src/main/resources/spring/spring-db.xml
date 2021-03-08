@@ -92,9 +92,12 @@
     </beans>
 
     <beans profile="jdbc">
+        <bean id="jdbc"
+              class="org.springframework.jdbc.datasource.DriverManagerDataSource" />
     </beans>
-    <beans profile="jpa">
+    <beans profile="jpa,datajpa">
+        <bean id="jpa"
+              class="org.springframework.data.jpa.repository.JpaRepository" abstract="true"/>
     </beans>
-    <beans profile="datajpa">
-    </beans>
+
 </beans>
